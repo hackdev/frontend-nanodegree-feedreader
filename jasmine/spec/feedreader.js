@@ -32,13 +32,13 @@ $(function() {
          */
         var length= allFeeds.length;
         it('Each object in the allFeeds array has a URL defined', function() {
-            for (var i=0; i<length; i++) {
+            for (var i = 0; i < length; i++) {
                 expect(allFeeds[i].url).toEqual(jasmine.any(String));
             }
         });
 
         it('and that URL is not empty', function() {
-            for (var i=0; i<length; i++) {
+            for (var i = 0; i < length; i++) {
                 expect(allFeeds[i].url).not.toBeNull();
                 expect(allFeeds[i].url.length).toBeGreaterThan(0);
             }
@@ -49,13 +49,13 @@ $(function() {
          * and that the name is not empty.
          */
         it('Each object in the allFeeds array has a name defined', function() {
-            for (var i=0; i<length; i++) {
+            for (var i = 0; i < length; i++) {
                 expect(allFeeds[i].name).toEqual(jasmine.any(String));
             }
         });
 
         it('and that name is not empty', function() {
-            for (var i=0; i<length; i++) {
+            for (var i = 0; i < length; i++) {
                 expect(allFeeds[i].name).not.toBeNull();
                 expect(allFeeds[i].name.length).toBeGreaterThan(0);
             }
