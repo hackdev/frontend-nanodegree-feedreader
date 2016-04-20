@@ -119,21 +119,16 @@ $(function() {
          */
         var feedHeading, newHeading;
 
-        //load feed, set initial feedHeading
+        //load feed, set initial feedHeading, load another feed, set newHeading, signal completion
         beforeEach(function(done){
             loadFeed(1, function(){
                 feedHeading=$('.entry h2').html();
                 //console.log ('feedHeading= ' + feedHeading);
-                done();
-            });
-        });
-
-        //load next feed
-        beforeEach(function(done){
-            loadFeed(2, function(){
-                newHeading=$('.entry h2').html();
-                //console.log ('newHeading= ' + newHeading);
-                done();
+                loadFeed(2, function(){
+                    newHeading=$('.entry h2').html();
+                    //console.log ('newHeading= ' + newHeading);
+                    done();
+                });
             });
         });
 
