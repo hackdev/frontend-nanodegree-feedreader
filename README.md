@@ -16,7 +16,7 @@ You can experience the live version of the app at http://hackdev.github.io/front
 
 ## Helpful Resources
 
-http://jasmine.github.io/
-http://api.jquery.com/
-https://learn.jquery.com/using-jquery-core/faq/how-do-i-test-whether-an-element-has-a-particular-class/
-https://discussions.udacity.com/t/when-does-it-require-done/38785
+http://jasmine.github.io/  
+http://api.jquery.com/  
+https://learn.jquery.com/using-jquery-core/faq/how-do-i-test-whether-an-element-has-a-particular-class/  
+https://discussions.udacity.com/t/when-does-it-require-done/38785  
