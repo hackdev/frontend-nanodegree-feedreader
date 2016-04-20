@@ -40,8 +40,7 @@ $(function() {
         it('and that URL is not empty', function() {
             for (var i=0; i<length; i++) {
                 expect(allFeeds[i].url).not.toBeNull();
-                expect(allFeeds[i].url).not.toBe(' ');
-                expect(allFeeds[i].url.length).toBeGreaterThan(14); //attempting to check validity of the URL by defining minimum length
+                expect(allFeeds[i].url.length).toBeGreaterThan(0);
             }
         });
 
@@ -58,7 +57,7 @@ $(function() {
         it('and that name is not empty', function() {
             for (var i=0; i<length; i++) {
                 expect(allFeeds[i].name).not.toBeNull();
-                expect(allFeeds[i].name).not.toBe(' ');
+                expect(allFeeds[i].name.length).toBeGreaterThan(0);
             }
         });
     });
@@ -104,9 +103,7 @@ $(function() {
         //this discussion was very helpful:
         //https://discussions.udacity.com/t/when-does-it-require-done/38785
         beforeEach(function(done){
-            loadFeed(0, function(){
-                done();
-            });
+            loadFeed(0, done);
         });
 
         it('there is at least one .entry element in the .feed container', function(){
@@ -122,13 +119,17 @@ $(function() {
          */
         var feedHeading, newHeading;
 
-        //load feed, set initial feedHeading and load next feed
+        //load feed, set initial feedHeading
         beforeEach(function(done){
             loadFeed(1, function(){
                 feedHeading=$('.entry h2').html();
                 //console.log ('feedHeading= ' + feedHeading);
+                done();
             });
+        });
 
+        //load next feed
+        beforeEach(function(done){
             loadFeed(2, function(){
                 newHeading=$('.entry h2').html();
                 //console.log ('newHeading= ' + newHeading);
@@ -137,8 +138,8 @@ $(function() {
         });
 
         it("content changes when new feed is loaded", function() {
-            expect(feedHeading).toBeDefined;
-            expect(newHeading).toBeDefined;
+            expect(feedHeading).toBeDefined();
+            expect(newHeading).toBeDefined();
             expect(feedHeading).not.toEqual(newHeading);
         });
     });
