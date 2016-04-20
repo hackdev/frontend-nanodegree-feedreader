@@ -32,13 +32,13 @@ $(function() {
          */
         var length= allFeeds.length;
         it('Each object in the allFeeds array has a URL defined', function() {
-            for (var i=0; i<length; i++) {
+            for (var i = 0; i < length; i++) {
                 expect(allFeeds[i].url).toEqual(jasmine.any(String));
             }
         });
 
         it('and that URL is not empty', function() {
-            for (var i=0; i<length; i++) {
+            for (var i = 0; i < length; i++) {
                 expect(allFeeds[i].url).not.toBeNull();
                 expect(allFeeds[i].url.length).toBeGreaterThan(0);
             }
@@ -49,13 +49,13 @@ $(function() {
          * and that the name is not empty.
          */
         it('Each object in the allFeeds array has a name defined', function() {
-            for (var i=0; i<length; i++) {
+            for (var i = 0; i < length; i++) {
                 expect(allFeeds[i].name).toEqual(jasmine.any(String));
             }
         });
 
         it('and that name is not empty', function() {
-            for (var i=0; i<length; i++) {
+            for (var i = 0; i < length; i++) {
                 expect(allFeeds[i].name).not.toBeNull();
                 expect(allFeeds[i].name.length).toBeGreaterThan(0);
             }
@@ -119,21 +119,16 @@ $(function() {
          */
         var feedHeading, newHeading;
 
-        //load feed, set initial feedHeading
+        //load feed, set initial feedHeading, load another feed, set newHeading, signal completion
         beforeEach(function(done){
             loadFeed(1, function(){
                 feedHeading=$('.entry h2').html();
                 //console.log ('feedHeading= ' + feedHeading);
-                done();
-            });
-        });
-
-        //load next feed
-        beforeEach(function(done){
-            loadFeed(2, function(){
-                newHeading=$('.entry h2').html();
-                //console.log ('newHeading= ' + newHeading);
-                done();
+                loadFeed(2, function(){
+                    newHeading=$('.entry h2').html();
+                    //console.log ('newHeading= ' + newHeading);
+                    done();
+                });
             });
         });
 
